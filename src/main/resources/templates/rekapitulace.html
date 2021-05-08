@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrace na letní dětský tábor</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+<div class="container">
+    <form class="form" th:action="@{/}" method="post">
+        <h1>Rekapitulace údajů:</h1>
+        <label for="jmeno" class="radek">Jméno</label>
+        <input id="jmeno" type="text" th:field="${form.jmeno}" readonly/>
+
+
+        <label for="prijmeni" class="radek">Příjmení:</label>
+        <input id="prijmeni" type="text" th:field="${form.prijmeni}" readonly/>
+
+        <label for="datumNarozeni" class="radek">Datum narozeni</label>
+        <input id="datumNarozeni" type="date" th:field="${form.datumNarozeni}" readonly/>
+
+        <div class="skupina">
+            <div>
+                <input id="pohlavi1" type="radio" th:field="${form.pohlavi}" value="DIVKA" onclick="return false"/>
+                <label for="pohlavi1">Dívka</label>
+
+                <input id="pohlavi2" type="radio" th:field="${form.pohlavi}" value="CHLAPEC" onclick="return false"/>
+                <label for="pohlavi2">Chlapec</label>
+            </div>
+        </div>
+
+        <div class="skupina">
+            <div>
+                <input id="sport1" type="checkbox" th:field="${form.sport}" value="PLAVANI" onclick="return false"/>
+                <label for="sport1">Plavání</label>
+            </div>
+            <div>
+                <input id="sport2" type="checkbox" th:field="${form.sport}" value="BEH" onclick="return false"/>
+                <label for="sport2">Běh</label>
+            </div>
+            <div>
+                <input id="sport3" type="checkbox" th:field="${form.sport}" value="CYKLISTIKA" onclick="return false"/>
+                <label for="sport3">Cyklistika</label>
+            </div>
+            <div>
+                <input id="sport4" type="checkbox" th:field="${form.sport}" value="FOTBAL" onclick="return false"/>
+                <label for="sport4">Fotbal</label>
+            </div>
+            <div>
+                <input id="sport5" type="checkbox" th:field="${form.sport}" value="BASKETBAL" onclick="return false"/>
+                <label for="sport5">Basketbal</label>
+            </div>
+        </div>
+
+        <label for="turnus" class="radek">Turnus:</label>
+        <div id="turnus">
+            <input class="turnus" th:if="${form.turnus} == 1" value="05. - 11. 07. 2021" readonly/>
+            <input class="turnus" th:if="${form.turnus} == 2" value="12. - 18. 07. 2021" readonly/>
+            <input class="turnus" th:if="${form.turnus} == 3" value="19. - 25. 07. 2021" readonly/>
+        </div>
+
+        <label for="email" class="radek">E-mail:</label>
+        <input id="email" type="email" th:field="${form.email}" readonly/>
+
+        <label for="telefon" class="radek">Telefon:</label>
+        <input id="telefon" type="text" th:field="${form.telefon}" readonly/>
+    <div>
+        <h2>Vaše přihláška byla zaevidována.</h2>
+    </div>
+    </form>
+</div>
+</body>
+</html>
